@@ -22,6 +22,7 @@
   },
   "scripts": {
     "dev": "craco start",
+    "prod": "craco build && serve -s build",
     "build": "craco build",
     "test": "jest ./src/tests"
   },
