@@ -5,16 +5,90 @@
   font-style: ; // normal italic
 } */
 
+/* Pretendard */
+
 @font-face {
-  font-family: "Dongle";
-  src: url("assets/fonts/Dongle-Regular.ttf") format("truetype");
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Light.subset.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Regular.subset.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Dongle";
-  src: url("assets/fonts/Dongle-Bold.ttf") format("truetype");
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Medium.subset.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-SemiBold.subset.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-Bold.subset.woff2") format("woff2");
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("assets/fonts/Pretendard-ExtraBold.subset.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* SUSE */
+
+@font-face {
+  font-family: "SUSE";
+  src: url("assets/fonts/SUSE-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUSE";
+  src: url("assets/fonts/SUSE-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUSE";
+  src: url("assets/fonts/SUSE-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUSE";
+  src: url("assets/fonts/SUSE-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUSE";
+  src: url("assets/fonts/SUSE-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUSE";
+  src: url("assets/fonts/SUSE-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
   font-style: normal;
 }
