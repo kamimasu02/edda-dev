@@ -1,12 +1,22 @@
+import {
+  FooterText,
+  FooterTextWrapper,
+  FooterWrapper,
+  MainFooter,
+} from "src/styles/footer.style";
+
 import type { FC } from "react";
 
-interface FooterProps {}
-
-const Footer: FC<FooterProps> = () => {
+const Footer: FC = () => {
   return (
-    <footer className="footer">
-      <span>Footer</span>
-    </footer>
+    <FooterWrapper>
+      <MainFooter>
+        <FooterTextWrapper>
+          <FooterText>Copyright 2024. Studio EDDA.</FooterText>
+          <FooterText>All rights reserved.</FooterText>
+        </FooterTextWrapper>
+      </MainFooter>
+    </FooterWrapper>
   );
 };
 

@@ -4,8 +4,8 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Meta from "@components/Meta";
 
-import NotFoundPage from "@pages/not-found";
-import MainPage from "@pages/main";
+import MainPage from "@pages/MainPage";
+import IntroductionPage from "@pages/IntroPage";
 
 import "./App.css";
 import "./font.css";
@@ -14,19 +14,13 @@ const App = () => {
   return (
     <div className="app">
       <Meta />
-      <div className="header-wrapper">
-        <Header>Header</Header>
-      </div>
-      <div className="page-wrapper">
-        <Routes>
-          <Route path="/" Component={MainPage} />
-          <Route path="/404" Component={NotFoundPage} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
-        </Routes>
-      </div>
-      <div className="footer-wrapper">
-        <Footer>Footer</Footer>
-      </div>
+      <Header />
+      <Routes>
+        <Route path="/" Component={MainPage} />
+        <Route path="/intro" Component={IntroductionPage} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+      <Footer />
     </div>
   );
 };
