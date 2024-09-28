@@ -12,7 +12,7 @@ export const MainHeader = styled.header`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: ${SCREEN_MAX_WIDTH}px;
+  max-width: ${SCREEN_MAX_WIDTH};
   height: 70px;
   padding: 15px;
 `;

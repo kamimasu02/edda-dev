@@ -17,7 +17,7 @@ export const MainFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: ${SCREEN_MAX_WIDTH}px;
+  max-width: ${SCREEN_MAX_WIDTH};
   height: 174px;
 `;
 
