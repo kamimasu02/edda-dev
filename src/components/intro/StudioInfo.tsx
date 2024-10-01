@@ -61,6 +61,7 @@ function StudioInfo() {
                     <p>
                         <b>상상 그 자체</b>를 현실로 만들어내는 <br />
                         <strong>스튜디오 에다</strong>가 되겠습니다.
+                        
                     </p>
                 </IntroFullBox>
             </StudioInfoWrapper>
