@@ -4,6 +4,7 @@ import {
   TypoText,
   TypoWrapper,
   TypoBackgroundImage,
+  TypoBackgroundWrapper,
 } from "@styles/main/typo-section.style";
 
 import ZeusImage from "@assets/images/main/zeus-background.png";
@@ -24,24 +25,11 @@ const TypoSection: FC = () => {
           신은 존재하며 아이돌을 하고있다!
         </TypoText>
       </TypoTextWrapper>
-      <TypoBackgroundImage
-        src={RokiImage}
-        alt="로키 이미지"
-        $left={50}
-        $transform={-100}
-      />
-      <TypoBackgroundImage
-        src={ZeusImage}
-        alt="제우스 이미지"
-        $left={50}
-        $transform={-40}
-      />
-      <TypoBackgroundImage
-        src={OdinImage}
-        alt="오딘 이미지"
-        $left={50}
-        $transform={0}
-      />
+      <TypoBackgroundWrapper>
+        <TypoBackgroundImage src={RokiImage} alt="로키 이미지" />
+        <TypoBackgroundImage src={ZeusImage} alt="제우스 이미지" />
+        <TypoBackgroundImage src={OdinImage} alt="오딘 이미지" />
+      </TypoBackgroundWrapper>
     </TypoWrapper>
   );
 };
