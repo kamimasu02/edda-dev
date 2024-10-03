@@ -15,7 +15,11 @@ export const SynopsysWrapper = styled.section<{
   row-gap: 90px;
   box-sizing: border-box;
   background: ${({ $image, $opacity }) =>
-    `linear-gradient(rgba(255, 255, 255, ${$opacity}), rgba(255, 255, 255, ${$opacity}), rgba(255, 255, 255, ${$opacity})), url(${$image})`};
+    `linear-gradient(rgba(255, 255, 255, ${
+      1 - $opacity
+    }), rgba(255, 255, 255, ${1 - $opacity}), rgba(255, 255, 255, ${
+      1 - $opacity
+    })), url(${$image})`};
   background-size: cover;
 `;
 

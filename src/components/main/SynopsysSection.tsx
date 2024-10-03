@@ -12,7 +12,8 @@ import SynopsysImage from "@assets/images/main/synopsys-background.png";
 import type { FC } from "react";
 
 const SynopsysSection: FC = () => {
-  const OPACITY = 0.8;
+  const OPACITY = 0.15;
+
   return (
     <SynopsysWrapper $image={SynopsysImage} $opacity={OPACITY}>
       <SectionTitle
