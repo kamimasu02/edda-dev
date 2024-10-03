@@ -84,7 +84,7 @@ export const HamburgerMenusWrapper = styled.div`
   z-index: -1;
 
   &.show {
-    z-index: 2;
+    z-index: 999;
 
     :first-child {
       visibility: visible;
