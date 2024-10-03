@@ -7,6 +7,15 @@ export const TitleWrapper = styled.div`
   justify-content: center;
   height: 64px;
   font-family: "SUSE";
+
+  @media screen and (max-width: ${SCREEN.tablet}) {
+    height: 61px;
+  }
+
+  @media screen and (max-width: ${SCREEN.mobileWide}) {
+    font-size: ${FONT.mobile.header};
+    height: 34px;
+  }
 `;
 
 export const TitleTextWrapper = styled.div`
