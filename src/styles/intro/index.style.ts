@@ -550,7 +550,7 @@ export const ToonDetail = styled.p`
     line-height: 1.6;
 `;
 
-export const ToonItemWrapper = styled.div`
+export const ToonItemWrapper = styled.div.attrs((props) => ({}))<{ childrenCount: number }>`
     display: flex;
     justify-content: center;
     width: auto;
@@ -564,7 +564,6 @@ export const ToonItemWrapper = styled.div`
         width: 66.66%;
         gap: 16px;
         flex-wrap: wrap;
-        padding: 0 30px;
     }
     @media (max-width: 768px) {
         width: 100%;
@@ -572,9 +571,10 @@ export const ToonItemWrapper = styled.div`
         flex-direction: column;
         padding: 0 16px;
         flex-wrap: nowrap;
+        margin: 60px auto;
     }
 
-    & > *:nth-of-type(even) {
+    & > a:nth-of-type(even) {
         transform: translateY(50px);
 
         @media (max-width: 1169px) {
@@ -582,9 +582,147 @@ export const ToonItemWrapper = styled.div`
         }
         @media (max-width: 768px) {
             transform: translateY(0px);
-            align-self: flex-end;            
+            align-self: flex-end;
         }
     }
+
+    ${(props) =>
+        props.childrenCount <= 1 &&
+        `
+
+        @media (max-width: 1169px) {
+            & > *{position: relative;}
+
+            & > *::before {
+                display: block !important;
+            }
+            & > *::after {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            & > *::before, & > *::after {
+                display: none !important;
+            }
+            align-items: center;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0px;
+                right: 16px;
+                width: 30px;
+                height: 30px;
+                background: url("/images/stars.svg") no-repeat center right;
+                background-size: contain;
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                left: 16px;
+                width: 30px;
+                height: 30px;
+                background: url("/images/stars.svg") no-repeat center left;
+                background-size: contain;
+                z-index: 1;
+            }
+        }
+    `}
+    ${(props) =>
+        props.childrenCount >= 2 &&
+        `
+        position: relative;
+
+        @media (max-width: 1169px) {
+            justify-content: space-between;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                width: 60px;
+                height: 30px;
+                background: url("/images/stars.svg") no-repeat center right;
+                background-size: contain;
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -100px;
+                left: 0px;
+                width: 60px;
+                height: 30px;
+                background: url("/images/stars.svg") no-repeat center left;
+                background-size: contain;
+                z-index: 1;
+            }
+        }
+    `}
+
+        ${(props) =>
+        props.childrenCount % 2 !== 0 &&
+        props.childrenCount > 1 &&
+        `
+        @media (max-width: 768px) {
+            justify-content: space-between;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0px;
+                right: 16px;
+                width: 30px;
+                height: 30px;
+                background: url("/images/stars.svg") no-repeat center right;
+                background-size: contain;
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                left: auto;
+                right: 16px;
+                width: 30px;
+                height: 30px;
+                background: url("/images/stars.svg") no-repeat center left;
+                background-size: contain;
+                z-index: 1;
+            }
+        }
+        `}
+    ${(props) =>
+        props.childrenCount % 2 === 0 &&
+        props.childrenCount > 1 &&
+        `
+            @media (max-width: 768px) {
+                justify-content: space-between;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    right: 16px;
+                    width: 30px;
+                    height: 30px;
+                    background: url("/images/stars.svg") no-repeat center right;
+                    background-size: contain;
+                    z-index: 1;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0px;
+                    left: 16px;
+                    width: 30px;
+                    height: 30px;
+                    background: url("/images/stars.svg") no-repeat center left;
+                    background-size: contain;
+                    z-index: 1;
+                }
+            }
+    `}
 `;
 
 export const ToonItem = styled.a`
@@ -607,8 +745,8 @@ export const ToonItem = styled.a`
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: ${RADIUS.pc};        
-            
+        border-radius: ${RADIUS.pc};
+
         @media (max-width: 1169px) {
             border-radius: ${RADIUS.tablet};
         }
@@ -662,7 +800,6 @@ export const ToonItem = styled.a`
             }
         }
     }
-        
 `;
 
 export const ToonInfo = styled.div`

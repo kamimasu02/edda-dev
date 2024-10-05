@@ -1,3 +1,5 @@
+import React, {useEffect, useState} from "react";
+
 import SectionTitle from "@components/commons/SectionTitle";
 
 import {
@@ -12,6 +14,18 @@ import {
 
 
 function StudioToon({ scrollY }: { scrollY: number }) {
+
+    const [childrenCount, setChildrenCount] = useState(0);
+
+    useEffect(() => {
+        const toonItemWrapper = document.querySelector("#toon-item-wrapper");
+        if (toonItemWrapper) {
+            const count = toonItemWrapper.children.length;
+            setChildrenCount(count);
+            console.log("childrenCount: ", count);
+        }
+    }, []);
+
     return (
         <StudioToonBox>
             <StudioToonWrapper>
@@ -28,7 +42,7 @@ function StudioToon({ scrollY }: { scrollY: number }) {
                     4컷 만화에 담았습니다!
                 </ToonDetail>
 
-                <ToonItemWrapper>
+                <ToonItemWrapper childrenCount={childrenCount} id="toon-item-wrapper">
                     <ToonItem>
                         <img src="/images/toon-thumb01.png" alt="Studio EDDA" />
                         <ToonInfo>
