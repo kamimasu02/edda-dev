@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { CommonPageWrapper, CommonPage } from "@styles/index.style";
 import { COLOR, FONT, RADIUS, SCREEN_MAX_WIDTH } from "@consts/style";
+import {TitleWrapper} from "@styles/commons/section-title.style";
 
 export const PageWrapper = styled.div`
     margin: 0 auto;
@@ -115,6 +116,9 @@ export const IntroMainWrapper = styled.div`
                 transform: translateX(-30px);
             }
         }
+        p:last-of-type {
+            transition-delay: 1.6s;
+        }
     }
 `;
 
@@ -158,6 +162,25 @@ export const StudioInfoWrapper = styled.div`
     padding: 200px 0;
     position: relative;
     z-index: 10;
+
+    & > ${TitleWrapper} {
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: all 1.6s;
+    }
+
+    & > p:first-of-type {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all .6s;
+    }
+    
+    &.scrolled > ${TitleWrapper},
+    &.scrolled > p:first-of-type {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 `;
 
 export const SubTitle = styled.p`
@@ -380,6 +403,7 @@ export const StudioVisualBehind = styled.div`
     background-size: contain;
     z-index: 3;
     transform: translateX(750px);
+    transition-delay: 1.6s;
 
     @media (min-width: 1170px) {
         height: 1030px;
@@ -415,6 +439,7 @@ export const StudioVisualFoward = styled.div`
     background-size: contain;
     z-index: 5;
     transform: translateX(750px);
+    transition-delay: 1.6s;
 
     @media (min-width: 1170px) {
         height: 1030px;

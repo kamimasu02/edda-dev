@@ -29,8 +29,8 @@ const MainVisual = ({ scrollY }: { scrollY: number }) => {
 
     return (
         <IntroMain ref={introMainRef}>
-            <IntroMainImage></IntroMainImage>
-            <IntroMainVisual></IntroMainVisual>
+            <IntroMainImage  className={isScrolled ? "scrolled" : ""}></IntroMainImage>
+            <IntroMainVisual  className={isScrolled ? "scrolled" : ""}></IntroMainVisual>
             <IntroMainWrapper className={isScrolled ? "scrolled" : ""}>
                 <IntroMainText> Dream </IntroMainText>
                 <IntroSubText> Your </IntroSubText>
