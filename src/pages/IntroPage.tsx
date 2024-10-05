@@ -24,10 +24,6 @@ const IntroPage: FC = () => {
             window.removeEventListener('wheel', handleScroll);
         };
     }, []);
-
-    useEffect(() => {
-        console.log(scrollY);
-    }, [scrollY]);
     
     return (
         <PageWrapper>

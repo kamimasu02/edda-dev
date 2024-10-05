@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { CommonPageWrapper, CommonPage } from "@styles/index.style";
 import { COLOR, FONT, RADIUS, SCREEN_MAX_WIDTH } from "@consts/style";
-import {TitleWrapper} from "@styles/commons/section-title.style";
+import { TitleWrapper } from "@styles/commons/section-title.style";
 
 export const PageWrapper = styled.div`
     margin: 0 auto;
     width: 100%;
 `;
 
-export const Page =  styled.div`
+export const Page = styled.div`
     margin: 0 auto;
     width: 100%;
 `;
@@ -22,7 +22,7 @@ export const IntroMain = styled.div`
     min-height: 820px;
     height: 100%;
     position: relative;
-`; 
+`;
 
 export const IntroMainImage = styled.div`
     width: 100%;
@@ -50,12 +50,11 @@ export const IntroMainVisual = styled.div`
     filter: brightness(3);
 
     @media (min-width: 768px) {
-        height:810px;
+        height: 810px;
     }
     @media (max-width: 767px) {
         height: 640px;
     }
-
 `;
 
 export const IntroMainWrapper = styled.div`
@@ -68,11 +67,11 @@ export const IntroMainWrapper = styled.div`
     height: 100%;
     position: relative;
     z-index: 20;
-    
-    & > *~* {
+
+    & > * ~ * {
         margin: 10px 0 0;
     }
-    & > *{
+    & > * {
         transition: all 1.6s;
         transform: translateX(0);
         opacity: 0;
@@ -131,8 +130,7 @@ export const IntroMainText = styled.p`
     @media (max-width: 768px) {
         font-size: 48px;
     }
-
-`
+`;
 export const IntroSubText = styled.p`
     font-size: 48px;
     font-family: "SUSE";
@@ -141,8 +139,8 @@ export const IntroSubText = styled.p`
     text-align: center;
     @media (max-width: 768px) {
         font-size: 32px;
-    }    
-`
+    }
+`;
 
 export const IntroDetail = styled.p`
     font-size: 18px;
@@ -172,15 +170,13 @@ export const StudioInfoWrapper = styled.div`
     & > p:first-of-type {
         opacity: 0;
         transform: translateY(50px);
-        transition: all .6s;
+        transition: all 0.6s;
     }
-    
-    &.scrolled > ${TitleWrapper},
-    &.scrolled > p:first-of-type {
+
+    &.scrolled > ${TitleWrapper}, &.scrolled > p:first-of-type {
         opacity: 1;
         transform: translateY(0);
     }
-
 `;
 
 export const SubTitle = styled.p`
@@ -207,19 +203,19 @@ export const SubTitle = styled.p`
 
 export const IntroBoxWrapper = styled.div`
     display: grid;
-    
+
     gap: 30px;
     max-width: 1170px;
     margin: 80px auto 100px;
 
     @media (min-width: 1170px) {
         grid-template-columns: repeat(12, 1fr);
-        gap: 16px;  
+        gap: 16px;
     }
 
     @media (max-width: 1169px) {
         grid-template-columns: repeat(6, 1fr);
-        gap: 16px;  
+        gap: 16px;
     }
 
     @media (max-width: 768px) {
@@ -247,7 +243,7 @@ export const IntroBoxWrapper = styled.div`
 export const IntroHarfBoxLeft = styled.div`
     display: flex;
     flex-direction: column;
-    @media (min-width:1170px) {
+    @media (min-width: 1170px) {
         grid-column: 1 / 7;
     }
     @media (max-width: 1169px) {
@@ -257,7 +253,10 @@ export const IntroHarfBoxLeft = styled.div`
         grid-column: 1 / 9;
     }
 
-    & > * {transition: all .8s; opacity: 0;}
+    & > * {
+        transition: all 0.8s;
+        opacity: 0;
+    }
 
     div {
         transform: translateX(-50px);
@@ -268,14 +267,17 @@ export const IntroHarfBoxLeft = styled.div`
     }
 
     &.scrolled {
-        * {transform: translateX(0); opacity: 1;}
-    }        
+        * {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 `;
 
 export const IntroHarfBoxRight = styled.div`
     display: flex;
     flex-direction: column;
-    @media (min-width:1170px) {
+    @media (min-width: 1170px) {
         grid-column: 7 / 13;
     }
     @media (max-width: 1169px) {
@@ -286,7 +288,10 @@ export const IntroHarfBoxRight = styled.div`
         margin-top: 50px;
     }
 
-    & > * {transition: all .8s; opacity: 0;}
+    & > * {
+        transition: all 0.8s;
+        opacity: 0;
+    }
 
     div {
         transform: translateX(-50px);
@@ -297,10 +302,11 @@ export const IntroHarfBoxRight = styled.div`
     }
 
     &.scrolled {
-        * {transform: translateX(0); opacity: 1;}
+        * {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
-
-
 `;
 
 export const StudioLogo = styled.div`
@@ -322,7 +328,6 @@ export const StudioLogo = styled.div`
     @media (max-width: 768px) {
         padding: 40px;
     }
-
 `;
 
 export const IntroFullBox = styled.div`
@@ -331,7 +336,7 @@ export const IntroFullBox = styled.div`
     flex-direction: column;
     box-sizing: border-box;
 
-    p{
+    p {
         text-align: center;
         line-height: 1.6;
         font-size: ${FONT.pc.normal};
@@ -353,17 +358,26 @@ export const IntroFullBox = styled.div`
 
     @media (max-width: 768px) {
         padding: 0px;
-    } 
-
-    *{transition: all .8s; opacity: 0;}
-
-    & > div {transform: translateY(-50px);}
-    & > p {transform: translateY(50px);}
-    
-    &.scrolled {
-        * {transform: translateX(0); opacity: 1;}
     }
 
+    & > * {
+        transition: all 0.8s;
+        opacity: 0;
+    }
+
+    & > div {
+        transform: translateY(-50px);
+    }
+    & > p {
+        transform: translateY(50px);
+    }
+
+    &.scrolled {
+        & > * {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 `;
 
 export const FullBoxLogo = styled.div`
@@ -392,6 +406,8 @@ export const FullBoxLogo = styled.div`
         height: 100%;
         object-fit: contain;
     }
+
+    position: relative;
 `;
 
 export const StudioVisualBehind = styled.div`
@@ -421,12 +437,12 @@ export const StudioVisualBehind = styled.div`
         transform: translateX(200px);
         bottom: 450px;
     }
-        
+
     opacity: 0;
     transition: all 1.6s;
 
     &.scrolled {
-        opacity: 1
+        opacity: 1;
     }
 `;
 
@@ -457,15 +473,58 @@ export const StudioVisualFoward = styled.div`
         transform: translateX(200px);
         bottom: 450px;
     }
-        
+
     opacity: 0;
     transition: opacity 1.6s;
 
     &.scrolled {
-        opacity: 1
+        opacity: 1;
     }
-    `;
+`;
 
+export const StarsLeft = styled.div`
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 60px;
+    height: 30px;
+    background: url("/images/stars.svg") no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+
+    @media (max-width: 1169px) {
+        width: 40px;
+        height: 20px;
+        top: -40px;
+        left: -10px;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+`;
+export const StarsRight = styled.div`
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 60px;
+    height: 30px;
+    background: url("/images/stars.svg") no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+    transform: rotate(180deg);
+
+    @media (max-width: 1169px) {
+        width: 40px;
+        height: 20px;
+        bottom: -40px;
+        right: -10px;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+`;
 
 // section3 툰
 
@@ -494,36 +553,143 @@ export const ToonDetail = styled.p`
 export const ToonItemWrapper = styled.div`
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: auto;
     max-width: 1170px;
     margin: 100px auto;
-
     gap: 30px;
+    position: relative;
+    box-sizing: border-box;
 
     @media (max-width: 1169px) {
+        width: 66.66%;
         gap: 16px;
+        flex-wrap: wrap;
+        padding: 0 30px;
     }
     @media (max-width: 768px) {
+        width: 100%;
         gap: 30px;
+        flex-direction: column;
+        padding: 0 16px;
+        flex-wrap: nowrap;
     }
 
-    
-    & > *:nth-of-type(even){
+    & > *:nth-of-type(even) {
         transform: translateY(50px);
+
+        @media (max-width: 1169px) {
+            transform: translateY(100px);
+        }
+        @media (max-width: 768px) {
+            transform: translateY(0px);
+            align-self: flex-end;            
+        }
     }
 `;
 
-export const ToonItem = styled.div`
+export const ToonItem = styled.a`
     width: 25%;
     height: 300px;
     border-radius: ${RADIUS.pc};
     background: #fff;
+    position: relative;
+
+    @media (max-width: 1168px) {
+        width: calc(50% - 8px);
+        height: 260px;
+    }
+    @media (max-width: 768px) {
+        width: 75%;
+        height: 240px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: ${RADIUS.pc};        
+            
+        @media (max-width: 1169px) {
+            border-radius: ${RADIUS.tablet};
+        }
+
+        @media (max-width: 768px) {
+            border-radius: ${RADIUS.mobile};
+        }
+    }
+
+    box-shadow: 5px 10px 15px rgba(188, 205, 247, 0.25);
+
+    &:first-of-type {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: 0px;
+            width: 61px;
+            height: 45px;
+            background: url("/images/stars.svg") no-repeat center center;
+            background-size: contain;
+            z-index: 1;
+
+            @media (max-width: 1169px) {
+                display: none;
+            }
+        }
+    }
+
+    &:last-of-type {
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -80px;
+            right: 0px;
+            width: 61px;
+            height: 45px;
+            background: url("/images/stars.svg") no-repeat center center;
+            background-size: contain;
+            z-index: 1;
+            transform: rotate(180deg);
+
+            @media (max-width: 1169px) {
+                display: none;
+            }
+        }
+    }
+        
+`;
+
+export const ToonInfo = styled.div`
+    width: 100%;
+    height: 60px;
+    background: ${COLOR.mainColor};
+    border-radius: 0 0 ${RADIUS.pc} ${RADIUS.pc};
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+
+    strong {
+        font-weight: 700;
+        margin-right: 5px;
+    }
+
+    @media (max-width: 1169px) {
+        border-radius: 0 0 ${RADIUS.tablet} ${RADIUS.tablet};
+    }
 
     @media (max-width: 768px) {
-        width: 50%;
+        border-radius: 0 0 ${RADIUS.mobile} ${RADIUS.mobile};
     }
-    @media (max-width: 360px) {
-        width: 100%;
-    }
-
 `;

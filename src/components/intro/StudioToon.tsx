@@ -7,6 +7,7 @@ import {
     ToonDetail,
     ToonItemWrapper,
     ToonItem,
+    ToonInfo
 } from "@styles/intro/index.style";
 
 
@@ -28,8 +29,15 @@ function StudioToon({ scrollY }: { scrollY: number }) {
                 </ToonDetail>
 
                 <ToonItemWrapper>
-                    <ToonItem></ToonItem>
-                    <ToonItem></ToonItem>
+                    <ToonItem>
+                        <img src="/images/toon-thumb01.png" alt="Studio EDDA" />
+                        <ToonInfo>
+                            <p>
+                                <strong>1화</strong>
+                                <span>DXI 개발하는많화</span>
+                            </p>
+                        </ToonInfo>
+                    </ToonItem>
                 </ToonItemWrapper>
 
             </StudioToonWrapper>

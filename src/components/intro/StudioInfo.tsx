@@ -12,6 +12,8 @@ import {
     FullBoxLogo,
     StudioVisualBehind,
     StudioVisualFoward,
+    StarsLeft,
+    StarsRight,
 } from "@styles/intro/index.style";
 
 // Throttling 함수
@@ -38,15 +40,12 @@ function StudioInfo({ scrollY }: { scrollY: number }) {
     const [isBoxFullScrolled, setIsBoxFullScrolled] = useState(false);
 
     const handleScroll = useCallback(() => {
-        const updateScrollState = (
-            ref: React.RefObject<HTMLDivElement>,
-            setState: React.Dispatch<React.SetStateAction<boolean>>,
-            currentState: boolean
-        ) => {
+        const updateScrollState = (ref: React.RefObject<HTMLDivElement>, setState: React.Dispatch<React.SetStateAction<boolean>>, currentState: boolean) => {
             if (ref.current) {
-                const yPos = ref.current.getBoundingClientRect().top;
-                // 만약 스크롤 상태가 이미 true인 경우, 상태를 변경하지 않음
-                if (!currentState && window.scrollY >= yPos) {
+                const yPos = ref.current.getBoundingClientRect().top + window.scrollY;
+                const triggerPosition = window.scrollY; 
+                
+                if (!currentState && window.scrollY >= yPos - triggerPosition) {
                     setState(true);
                 }
             }
@@ -110,7 +109,9 @@ function StudioInfo({ scrollY }: { scrollY: number }) {
 
                 <IntroFullBox ref={StudioBoxFullRef} className={isBoxFullScrolled ? "scrolled" : ""}>
                     <FullBoxLogo>
+                        <StarsLeft />
                         <img src="/images/studio-logo-full.png" alt="Studio EDDA" />
+                        <StarsRight />
                     </FullBoxLogo>
                     <p>
                         <b>상상 그 자체</b>를 현실로 만들어내는 <br />
@@ -118,8 +119,8 @@ function StudioInfo({ scrollY }: { scrollY: number }) {
                     </p>
                 </IntroFullBox>
             </StudioInfoWrapper>
-            <StudioVisualBehind  ref={StudioBoxFullRef} className={isBoxFullScrolled ? "scrolled" : ""}></StudioVisualBehind>
-            <StudioVisualFoward  ref={StudioBoxFullRef} className={isBoxFullScrolled ? "scrolled" : ""}></StudioVisualFoward>
+            <StudioVisualBehind className={isBoxFullScrolled ? "scrolled" : ""}></StudioVisualBehind>
+            <StudioVisualFoward className={isBoxFullScrolled ? "scrolled" : ""}></StudioVisualFoward>
         </StudioInfoBox>
     );
 }
