@@ -71,33 +71,49 @@ export const IntroMainWrapper = styled.div`
     & > *~* {
         margin: 10px 0 0;
     }
-    & > *:nth-child(2) {
-        @media (min-width: 768px) {
-            transform: translateX(60px);
-        }
-        @media (max-width: 767px) {
-            transform: translateX(30px);
-        }
+    & > *{
+        transition: all 1.6s;
+        transform: translateX(0);
+        opacity: 0;
     }
-    & > *:nth-child(3) {
-        @media (min-width: 768px) {
-            transform: translateX(-25px);
+
+    &.scrolled {
+        & > * {
+            opacity: 1;
         }
-    }
-    & > *:nth-child(4) {
-        @media (min-width: 768px) {
-            transform: translateX(-60px);
+
+        & > *:nth-child(2) {
+            transition-delay: 0s;
+            @media (min-width: 768px) {
+                transform: translateX(60px);
+            }
+            @media (max-width: 767px) {
+                transform: translateX(30px);
+            }
         }
-        @media (max-width: 767px) {
-            transform: translateX(-30px);
+        & > *:nth-child(3) {
+            transition-delay: 0.4s;
+            @media (min-width: 768px) {
+                transform: translateX(-25px);
+            }
         }
-    }
-    & > *:nth-child(5) {
-        @media (min-width: 768px) {
-            transform: translateX(50px);
+        & > *:nth-child(4) {
+            transition-delay: 0.6s;
+            @media (min-width: 768px) {
+                transform: translateX(-60px);
+            }
+            @media (max-width: 767px) {
+                transform: translateX(-30px);
+            }
         }
-        @media (max-width: 767px) {
-            transform: translateX(-30px);
+        & > *:nth-child(5) {
+            transition-delay: 0.8s;
+            @media (min-width: 768px) {
+                transform: translateX(50px);
+            }
+            @media (max-width: 767px) {
+                transform: translateX(-30px);
+            }
         }
     }
 `;
@@ -217,6 +233,20 @@ export const IntroHarfBoxLeft = styled.div`
     @media (max-width: 767px) {
         grid-column: 1 / 9;
     }
+
+    & > * {transition: all .8s; opacity: 0;}
+
+    div {
+        transform: translateX(-50px);
+    }
+
+    p {
+        transform: translateX(50px);
+    }
+
+    &.scrolled {
+        * {transform: translateX(0); opacity: 1;}
+    }        
 `;
 
 export const IntroHarfBoxRight = styled.div`
@@ -226,12 +256,28 @@ export const IntroHarfBoxRight = styled.div`
         grid-column: 7 / 13;
     }
     @media (max-width: 1169px) {
-        grid-column: 3 / 7;
+        grid-column: 4 / 7;
     }
     @media (max-width: 767px) {
         grid-column: 1 / 9;
         margin-top: 50px;
     }
+
+    & > * {transition: all .8s; opacity: 0;}
+
+    div {
+        transform: translateX(-50px);
+    }
+
+    p {
+        transform: translateX(50px);
+    }
+
+    &.scrolled {
+        * {transform: translateX(0); opacity: 1;}
+    }
+
+
 `;
 
 export const StudioLogo = styled.div`
@@ -246,12 +292,21 @@ export const StudioLogo = styled.div`
         object-fit: contain;
     }
 
+    @media (max-width: 1169px) {
+        padding: 30px 50px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 40px;
+    }
+
 `;
 
 export const IntroFullBox = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 
     p{
         text-align: center;
@@ -268,6 +323,24 @@ export const IntroFullBox = styled.div`
     b {
         font-weight: 800;
     }
+
+    @media (max-width: 1169px) {
+        padding: 0 30px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0px;
+    } 
+
+    *{transition: all .8s; opacity: 0;}
+
+    & > div {transform: translateY(-50px);}
+    & > p {transform: translateY(50px);}
+    
+    &.scrolled {
+        * {transform: translateX(0); opacity: 1;}
+    }
+
 `;
 
 export const FullBoxLogo = styled.div`
@@ -283,10 +356,12 @@ export const FullBoxLogo = styled.div`
 
     @media (max-width: 1169px) {
         border-radius: ${RADIUS.tablet};
+        height: 300px;
     }
 
     @media (max-width: 768px) {
-        border-radius: ${RADIUS.mobile};
+        border-radius: 0;
+        height: 220px;
     }
 
     img {
@@ -299,41 +374,131 @@ export const FullBoxLogo = styled.div`
 export const StudioVisualBehind = styled.div`
     position: absolute;
     bottom: 0;
-    left: 50%;
+    right: 0%;
     width: 100%;
     background: url("/images/zeus-bg2.png") no-repeat center bottom;
     background-size: contain;
     z-index: 3;
-    transform: translateX(-450px);
+    transform: translateX(750px);
 
     @media (min-width: 1170px) {
         height: 1030px;
     }
     @media (max-width: 1169px) {
-        height: 940px;
+        height: 960px;
+        left: auto;
+        right: 0;
+        transform: translateX(300px);
     }
     @media (max-width: 767px) {
         height: 540px;
+        left: auto;
+        right: 0;
+        transform: translateX(200px);
+        bottom: 450px;
     }
-    `;
+        
+    opacity: 0;
+    transition: all 1.6s;
+
+    &.scrolled {
+        opacity: 1
+    }
+`;
 
 export const StudioVisualFoward = styled.div`
     position: absolute;
     bottom: 0;
-    left: 50%;
+    right: 0%;
     width: 100%;
     background: url("/images/zeus-bg.png") no-repeat center bottom;
     background-size: contain;
     z-index: 5;
-    transform: translateX(-450px);
+    transform: translateX(750px);
 
     @media (min-width: 1170px) {
         height: 1030px;
     }
     @media (max-width: 1169px) {
-        height: 940px;
+        height: 960px;
+        left: auto;
+        right: 0;
+        transform: translateX(300px);
     }
     @media (max-width: 767px) {
         height: 540px;
+        left: auto;
+        right: 0;
+        transform: translateX(200px);
+        bottom: 450px;
+    }
+        
+    opacity: 0;
+    transition: opacity 1.6s;
+
+    &.scrolled {
+        opacity: 1
     }
     `;
+
+
+// section3 툰
+
+export const StudioToonBox = styled.div`
+    background: rgba(188, 205, 247, 0.15);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+`;
+
+export const StudioToonWrapper = styled.div`
+    padding: 200px 0;
+    position: relative;
+    z-index: 10;
+`;
+
+export const ToonDetail = styled.p`
+    font-size: ${FONT.pc.normal};
+    color: #222;
+    text-align: center;
+    margin-top: 60px;
+    font-weight: 400;
+    line-height: 1.6;
+`;
+
+export const ToonItemWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1170px;
+    margin: 100px auto;
+
+    gap: 30px;
+
+    @media (max-width: 1169px) {
+        gap: 16px;
+    }
+    @media (max-width: 768px) {
+        gap: 30px;
+    }
+
+    
+    & > *:nth-of-type(even){
+        transform: translateY(50px);
+    }
+`;
+
+export const ToonItem = styled.div`
+    width: 25%;
+    height: 300px;
+    border-radius: ${RADIUS.pc};
+    background: #fff;
+
+    @media (max-width: 768px) {
+        width: 50%;
+    }
+    @media (max-width: 360px) {
+        width: 100%;
+    }
+
+`;
