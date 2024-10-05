@@ -31,8 +31,11 @@ export const HeaderLogo = styled.img`
   }
 `;
 
-export const HeaderNavBar = styled.nav`
+export const HeaderNavBar = styled.nav<{
+  $length: number;
+}>`
   display: grid;
+  grid-template-columns: repeat(${({ $length }) => $length}, 1fr);
   color: ${COLOR.mainColor};
   font-family: "Pretendard";
   font-size: ${FONT.pc.medium};
@@ -52,121 +55,112 @@ export const HeaderNavBar = styled.nav`
 
 // 모바일 햄버거 버튼
 
-export const HeaderHamburgerButton = styled.button`
-  display: none;
-  background: transparent;
-  border: 0;
-
-  & > img {
-    cursor: pointer;
-  }
-
-  @media screen and (max-width: ${SCREEN.tablet}) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto 0;
-    width: fit-content;
-    height: fit-content;
-  }
-`;
-
 export const HamburgerMenusWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  &.show {
-    z-index: 999;
-
-    :first-child {
-      visibility: visible;
-    }
-  }
-`;
-
-export const HamburgerMenusBackground = styled.div`
-  width: 100%;
-  height: calc(100% - 175px);
-  background-color: ${COLOR.black};
-  visibility: hidden;
-  transition: visibility 0.2s ease-in;
-  opacity: 0.3;
-
-  @media screen and (max-width: ${SCREEN.mobileWide}) {
-    height: calc(100% - 120px);
-  }
-`;
-
-export const HamburgerMenus = styled.ul`
   display: none;
-  max-width: 0;
-  font-size: 0;
-  transition: max-width 0.2s ease-in, font-size 0.2s ease-in;
 
   @media screen and (max-width: ${SCREEN.tablet}) {
     display: flex;
     position: absolute;
-    flex-direction: column;
-    align-items: center;
-    width: 120px;
-    height: calc(100% - 175px);
     top: 0;
     right: 0;
-    background-color: ${COLOR.subColor1};
-    color: ${COLOR.mainColor};
-    font-family: "Pretendard";
-    font-weight: 500;
-    list-style: none;
+    width: 100%;
+    max-width: 0;
+    height: 100%;
+    transition: max-width 0.2s ease-in, max-height 0.2s ease-in;
 
-    & > a {
+    & > * {
       display: none;
-      width: 100%;
     }
 
     &.show {
-      max-width: 120px;
-      font-size: ${FONT.tablet.normal};
+      flex-direction: column;
+      background-color: #0e004e;
+      max-width: 100%;
+      z-index: 999;
 
-      & > a {
+      & > * {
         display: flex;
       }
     }
   }
+`;
+
+export const HamburgerMenuHeader = styled.div`
+  justify-content: space-between;
+  width: 100%;
+  max-width: ${SCREEN.tablet};
+  height: 100px;
+  padding: 15px;
+  box-sizing: border-box;
 
   @media screen and (max-width: ${SCREEN.mobileWide}) {
-    width: 100px;
-    height: calc(100% - 120px);
-
-    &.show {
-      max-width: 100px;
-      font-size: ${FONT.mobile.normal};
-    }
+    height: 80px;
   }
+`;
 
-  @media screen and (max-width: ${SCREEN.mobileNarrow}) {
-    width: 80px;
+export const HamburgerHeaderLogo = styled.img`
+  width: 70px;
+  height: 70px;
 
-    &.show {
-      max-width: 80px;
-      font-size: 12px;
-    }
+  @media screen and (max-width: ${SCREEN.mobileWide}) {
+    width: 50px;
+    height: 50px;
+  }
+`;
+
+export const HamburgerMenus = styled.ul`
+  flex-direction: column;
+  color: ${COLOR.white};
+  padding: 0 16px;
+
+  & > li:not(:last-child) {
+    border-bottom: 1px solid ${COLOR.white};
   }
 `;
 
 export const HamburgerMenu = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 50px;
-  word-break: keep-all;
+  padding: 36px 0;
 
-  &:hover {
-    background-color: #b8aee7;
-    color: ${COLOR.white};
+  & > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (max-width: ${SCREEN.mobile}) {
+    padding: 24px 0;
+  }
+`;
+
+export const HamburgerMenuText = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  text-align: left;
+
+  & > span:first-child {
+    font-family: "SUSE";
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  & > span:last-child {
+    font-size: ${FONT.tablet.normal};
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: ${SCREEN.mobile}) {
+    row-gap: 12px;
+
+    & > span:first-child {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    & > span:last-child {
+      font-size: ${FONT.mobile.normal};
+    }
   }
 `;

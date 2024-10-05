@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { HEADER_LINKS } from "@consts/header";
 
-import HamburgerButton from "@components/header/HamburgerButton";
+import { Button } from "@styles/commons/button.style";
 
 import {
   HeaderWrapper,
@@ -12,12 +12,19 @@ import {
   HeaderLogo,
   HeaderNavBar,
   HamburgerMenus,
-  HamburgerMenusBackground,
   HamburgerMenusWrapper,
   HamburgerMenu,
+  HamburgerMenuHeader,
+  HamburgerHeaderLogo,
+  HamburgerMenuText,
 } from "src/styles/header.style";
 
 import HeaderLogoImage from "@assets/images/logos/header-logo.png";
+import HamburgerHeaderLogoImage from "@assets/images/logos/logo-white.png";
+
+import CloseSvg from "@assets/images/svgs/close.svg";
+import HamburgerSvg from "@assets/images/svgs/hamburger.svg";
+import RightBracketSvg from "@assets/images/svgs/right-bracket.svg";
 
 import type { FC } from "react";
 
@@ -48,26 +55,38 @@ const Header: FC = () => {
     <HeaderWrapper>
       <MainHeader>
         <HeaderLogo src={HeaderLogoImage} alt="로고 이미지" />
-        <HeaderNavBar
-          style={{ gridTemplateColumns: `repeat(${HEADER_LINKS.length}, 1fr)` }}
-        >
+        <HeaderNavBar $length={HEADER_LINKS.length}>
           {HEADER_LINKS.map(({ text, to }, index) => (
             <Link key={`${index}-${text}`} to={to}>
-              <span>{text}</span>
+              <span>{text.kor}</span>
             </Link>
           ))}
         </HeaderNavBar>
-        <HamburgerButton onClick={handleOpenMenu} />
+        <Button onClick={handleOpenMenu}>
+          <img src={HamburgerSvg} alt="햄버거 svg 이미지" />
+        </Button>
         {createPortal(
           <HamburgerMenusWrapper className={isMenuOpened ? "show" : ""}>
-            <HamburgerMenusBackground onClick={handleCloseMenu} />
+            <HamburgerMenuHeader>
+              <HamburgerHeaderLogo
+                src={HamburgerHeaderLogoImage}
+                alt="흰색 로고 이미지"
+              />
+              <Button onClick={handleCloseMenu}>
+                <img src={CloseSvg} alt="닫음 svg 이미지" />
+              </Button>
+            </HamburgerMenuHeader>
             <HamburgerMenus className={isMenuOpened ? "show" : ""}>
               {HEADER_LINKS.map(({ text, to }, index) => (
-                <Link key={`${index}-${text}-mobile`} to={to} reloadDocument>
-                  <HamburgerMenu>
-                    <span>{text}</span>
-                  </HamburgerMenu>
-                </Link>
+                <HamburgerMenu key={`${index}-${text}-mobile`}>
+                  <Link to={to} reloadDocument>
+                    <HamburgerMenuText>
+                      <span>{text.eng.toUpperCase()}</span>
+                      <span>{text.kor}</span>
+                    </HamburgerMenuText>
+                    <img src={RightBracketSvg} alt="" />
+                  </Link>
+                </HamburgerMenu>
               ))}
             </HamburgerMenus>
           </HamburgerMenusWrapper>,
