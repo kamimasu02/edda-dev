@@ -61,22 +61,21 @@ export const HamburgerMenusWrapper = styled.div`
   @media screen and (max-width: ${SCREEN.tablet}) {
     display: flex;
     position: absolute;
+    flex-direction: column;
+    background-color: #0e004e;
     top: 0;
     right: 0;
-    width: 100%;
-    max-width: 0;
+    width: 0;
     height: 100%;
-    transition: max-width 0.2s ease-in, max-height 0.2s ease-in;
+    transition: width 0.2s ease-in-out;
+    z-index: 999;
 
     & > * {
       display: none;
     }
 
     &.show {
-      flex-direction: column;
-      background-color: #0e004e;
-      max-width: 100%;
-      z-index: 999;
+      width: 100%;
 
       & > * {
         display: flex;
