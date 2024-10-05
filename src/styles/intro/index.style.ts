@@ -627,10 +627,10 @@ export const ToonItem = styled.a`
         &::before {
             content: "";
             position: absolute;
-            bottom: -80px;
+            bottom: -60px;
             left: 0px;
-            width: 61px;
-            height: 45px;
+            width: 60px;
+            height: 30px;
             background: url("/images/stars.svg") no-repeat center center;
             background-size: contain;
             z-index: 1;
@@ -648,10 +648,10 @@ export const ToonItem = styled.a`
         &::after {
             content: "";
             position: absolute;
-            top: -80px;
+            top: -60px;
             right: 0px;
-            width: 61px;
-            height: 45px;
+            width: 60px;
+            height: 30px;
             background: url("/images/stars.svg") no-repeat center center;
             background-size: contain;
             z-index: 1;
