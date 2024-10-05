@@ -67,7 +67,7 @@ export const HamburgerMenusWrapper = styled.div`
     right: 0;
     width: 0;
     height: 100%;
-    transition: width 0.2s ease-in-out;
+    transition: width 0.33s ease-in-out;
     z-index: 999;
 
     & > * {
