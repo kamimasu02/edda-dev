@@ -12,6 +12,7 @@ import {
 import SynopsysImage from "@assets/images/main/synopsys-background.png";
 
 import type { FC } from "react";
+import { COLOR } from "@consts/style";
 
 const SynopsysSection: FC = () => {
   const OPACITY = 0.15;
@@ -22,6 +23,9 @@ const SynopsysSection: FC = () => {
         text={{
           title: "Synopsys",
           subTitle: "About",
+        }}
+        color={{
+          background: `${COLOR.subColor1}80`,
         }}
         direction="left"
       />

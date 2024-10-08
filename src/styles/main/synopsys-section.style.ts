@@ -46,7 +46,7 @@ export const SynopsysTitleWrapper = styled.div`
 export const SynopsysTitleBackground = styled.div`
   position: absolute;
   bottom: 0;
-  background-color: ${COLOR.subColor1};
+  background-color: ${COLOR.subColor1}80;
   width: 100%;
   height: 16px;
 
