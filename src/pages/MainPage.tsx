@@ -2,6 +2,9 @@ import { Helmet } from "react-helmet";
 
 import TypoSection from "@components/main/TypoSection";
 import SynopsysSection from "@components/main/SynopsysSection";
+import ArtworkSection from "@components/main/ArtworkSection";
+
+import { ArtworkProvider } from "@contexts/main/artwork.context";
 
 import { PageWrapper, Page } from "@styles/main/index.style";
 
@@ -18,6 +21,9 @@ const MainPage: FC = () => {
         </Helmet>
         <TypoSection />
         <SynopsysSection />
+        <ArtworkProvider>
+          <ArtworkSection />
+        </ArtworkProvider>
       </Page>
     </PageWrapper>
   );
