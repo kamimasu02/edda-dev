@@ -9,13 +9,17 @@ import {
     ToonDetail,
     ToonItemWrapper,
     ToonItem,
-    ToonInfo
+    ToonInfo,
+    ToonVisual
 } from "@styles/intro/index.style";
+import Modal from "@components/commons/Modal";
 
 
 function StudioToon({ scrollY }: { scrollY: number }) {
 
     const [childrenCount, setChildrenCount] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [itemId, setItemId] = useState(0);
 
     useEffect(() => {
         const toonItemWrapper = document.querySelector("#toon-item-wrapper");
@@ -26,8 +30,19 @@ function StudioToon({ scrollY }: { scrollY: number }) {
         }
     }, []);
 
+    function modalOpen(itemNumber: number, ) {
+        if(isModalOpen) {
+            setIsModalOpen(false);
+        } else {
+            setIsModalOpen(true);
+            setItemId(itemNumber);
+        }
+    }
+
     return (
         <StudioToonBox>
+            <Modal type="toon" itemId={itemId} modalOpen={isModalOpen} setModalOpen={setIsModalOpen} />
+
             <StudioToonWrapper>
                 <SectionTitle text={{ title: "Studio EDDA", subTitle: "About", }} direction="left" />
 
@@ -43,7 +58,7 @@ function StudioToon({ scrollY }: { scrollY: number }) {
                 </ToonDetail>
 
                 <ToonItemWrapper childrenCount={childrenCount} id="toon-item-wrapper">
-                    <ToonItem>
+                    <ToonItem onClick={() => modalOpen(0)}>
                         <img src="/images/toon-thumb01.png" alt="Studio EDDA" />
                         <ToonInfo>
                             <p>
@@ -52,9 +67,18 @@ function StudioToon({ scrollY }: { scrollY: number }) {
                             </p>
                         </ToonInfo>
                     </ToonItem>
+                    <ToonItem onClick={() => modalOpen(1)}>
+                        <img src="/images/toon-thumb02.png" alt="Studio EDDA" />
+                        <ToonInfo>
+                            <p>
+                                <strong>2화</strong>
+                                <span>로키 디자인 회의</span>
+                            </p>
+                        </ToonInfo>
+                    </ToonItem>
                 </ToonItemWrapper>
-
             </StudioToonWrapper>
+            <ToonVisual />
         </StudioToonBox>
     );
 }

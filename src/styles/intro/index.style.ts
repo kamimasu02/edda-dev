@@ -415,7 +415,7 @@ export const StudioVisualBehind = styled.div`
     bottom: 0;
     right: 0%;
     width: 100%;
-    background: url("/images/zeus-bg2.png") no-repeat center bottom;
+    background: url("/images/studio-section02-bg02.png") no-repeat center bottom;
     background-size: contain;
     z-index: 3;
     transform: translateX(750px);
@@ -451,7 +451,7 @@ export const StudioVisualFoward = styled.div`
     bottom: 0;
     right: 0%;
     width: 100%;
-    background: url("/images/zeus-bg.png") no-repeat center bottom;
+    background: url("/images/studio-section02-bg01.png") no-repeat center bottom;
     background-size: contain;
     z-index: 5;
     transform: translateX(750px);
@@ -731,6 +731,7 @@ export const ToonItem = styled.a`
     border-radius: ${RADIUS.pc};
     background: #fff;
     position: relative;
+    cursor: pointer;
 
     @media (max-width: 1168px) {
         width: calc(50% - 8px);
@@ -829,4 +830,37 @@ export const ToonInfo = styled.div`
     @media (max-width: 768px) {
         border-radius: 0 0 ${RADIUS.mobile} ${RADIUS.mobile};
     }
+`;
+
+export const ToonVisual = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 100%;
+    background: url("/images/studio-section03-bg.png") no-repeat center bottom;
+    background-size: contain;
+    z-index: 5;
+    transform: translateX(-750px);
+    transition-delay: 1.6s;
+
+    @media (min-width: 1170px) {
+        height: 890px;
+    }
+    @media (max-width: 1169px) {
+        height: 800px;
+        left: 0;
+        transform: translateX(-300px);
+    }
+    @media (max-width: 767px) {
+        height: 600px;
+        left: 0;
+        transform: translateX(-250px);        
+    }
+/* 
+    opacity: 0;
+    transition: opacity 1.6s; */
+/* 
+    &.scrolled {
+        opacity: 1;
+    } */
 `;
