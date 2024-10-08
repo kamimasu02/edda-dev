@@ -26,13 +26,15 @@ export const ModalBox = styled.div`
     transform: translate(-50%, -50%);
     box-shadow: 0 15px 35px rgba(35, 28, 84, 1);
     border-radius: 16px;
-    background: #fff;
     &.toon {
         max-width: 512px;
         width: 82.5%;
+        background: #fff;
     }
     &.video {
         max-width: 1200px;
+        background: #fff;
+        width: 100%;
     }
 `;
 
@@ -50,6 +52,11 @@ export const ModalCloseButton = styled.button`
     overflow: hidden;
     text-indent: 1000%;
     z-index: 9999;
+
+    &.video {
+        top: -42px;
+        right: 0px;
+    }
 `;
 
 export const ModalItemWrapper = styled.div`
@@ -57,7 +64,6 @@ export const ModalItemWrapper = styled.div`
     border-radius: 16px;
     padding: 10px;
     box-sizing: border-box;
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,6 +76,7 @@ export const ModalItemWrapper = styled.div`
         max-width: 512px;
         padding-bottom: 165%;
         position: relative;
+        background: #fff;
 
         img {
             width: 100%;
@@ -77,6 +84,14 @@ export const ModalItemWrapper = styled.div`
             object-fit: cover;
         }
     }
+
+    &.video {
+        max-width: 1200px;
+        padding-bottom: 56.25%;
+        position: relative;
+        padding: 0;
+    }
+
     @media (min-width: 1170px) {
         width: 100%;
     }
@@ -108,6 +123,7 @@ export const ToonWrapper = styled.div`
     box-sizing: border-box;
     background: #fff;
     border-radius: 16px;
+    padding: 0 16px;
 
     &::-webkit-scrollbar {
         display: none;
@@ -181,5 +197,22 @@ export const ModalControl = styled.div`
             width: 30px;
             height: 30px;
         }
+    }
+`;
+
+export const ModalVideoWrapper = styled.div`
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    border-radius: 16px;
+
+    iframe {
+        position: absolute;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        top: -2px;
+        left: -2px;
     }
 `;
