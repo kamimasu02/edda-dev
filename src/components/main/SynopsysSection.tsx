@@ -30,17 +30,17 @@ const SynopsysSection: FC = () => {
         direction="left"
       />
       <SynopsysTitleWrapper>
-        <SynopsysTitle className="default">
+        <SynopsysTitle className="non-mobile">
           낙천한 신들의 아이돌 도전기!
         </SynopsysTitle>
-        <SynopsysTitle className="under-mobile">
+        <SynopsysTitle className="mobile">
           <span>낙천한 신들의</span>
           <span>아이돌 도전기!</span>
         </SynopsysTitle>
         <SynopsysTitleBackground />
       </SynopsysTitleWrapper>
       <SynopsysParagraph>
-        <SynopsysText className="default">
+        <SynopsysText className="non-mobile">
           'IDOL'우상이란 본디 신의 형상을 의미한다.
           <br />
           800만은 가볍게 넘어가는 신들이 인간계로 추락한 어떤 세계.
@@ -52,7 +52,7 @@ const SynopsysSection: FC = () => {
           <br />
           매니저, 우상(偶像)이자 우상(IDOL)인 신들을 이끌어주기를...
         </SynopsysText>
-        <SynopsysText className="under-mobile">
+        <SynopsysText className="mobile">
           'IDOL'우상이란 본디
           <br />
           신의 형상을 의미한다.

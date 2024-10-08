@@ -76,13 +76,13 @@ export const SynopsysTitle = styled.span`
     line-height: 24px;
   }
 
-  &.default {
+  &.non-mobile {
     @media screen and (max-width: 359px) {
       display: none;
     }
   }
 
-  &.under-mobile {
+  &.mobile {
     display: none;
 
     @media screen and (max-width: 359px) {
@@ -116,13 +116,13 @@ export const SynopsysText = styled.span`
   text-align: center;
   word-break: keep-all;
 
-  &.default {
+  &.non-mobile {
     @media screen and (max-width: 359px) {
       display: none;
     }
   }
 
-  &.under-mobile {
+  &.mobile {
     display: none;
 
     @media screen and (max-width: 359px) {
