@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { BORDER_RADIUS, COLOR } from "@consts/style";
+import { BORDER_RADIUS, COLOR, FONT, SCREEN } from "@consts/style";
 
 export const SpeechBubbleWrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ export const SpeechBubbleTextWrapper = styled.div<{
 }>`
   display: flex;
   position: relative;
-  width: 630px;
+  width: 100%;
   height: 280px;
   justify-content: center;
   align-items: center;
@@ -22,6 +22,21 @@ export const SpeechBubbleTextWrapper = styled.div<{
   background-size: cover;
   border-radius: ${BORDER_RADIUS.pc};
   box-shadow: 5px 15px 55px 15px ${({ $shadow }) => $shadow};
+
+  &.pc {
+    @media screen and (max-width: ${SCREEN.mobileWide}) {
+      display: none;
+    }
+  }
+
+  &.mobile {
+    display: none;
+
+    @media screen and (max-width: ${SCREEN.mobileWide}) {
+      display: flex;
+      height: 180px;
+    }
+  }
 `;
 
 export const SpeechBubbleText = styled.span<{ $color?: string }>`
@@ -35,6 +50,16 @@ export const SpeechBubbleText = styled.span<{ $color?: string }>`
   & > strong {
     color: ${({ $color }) => $color || COLOR.black};
     font-weight: 800;
+  }
+
+  @media screen and (max-width: ${SCREEN.tablet}) {
+    font-size: ${FONT.tablet.medium};
+    line-height: 32px;
+  }
+
+  @media screen and (max-width: ${SCREEN.mobileWide}) {
+    font-size: ${FONT.mobile.normal};
+    line-height: 24px;
   }
 `;
 
@@ -59,6 +84,35 @@ export const SpeechBubbleDoubleQuote = styled.svg<{
 export const SpeechBubbleTriangleImage = styled.img`
   width: 40px;
   height: auto;
-  margin-left: 450px;
+  margin-left: min(450px, calc(100% - 180px));
   z-index: 3;
+
+  @media screen and (max-width: ${SCREEN.tablet}) {
+    margin-left: calc(214px + (100vw - 768px) / 2);
+  }
+
+  &.pc {
+    @media screen and (max-width: ${SCREEN.mobileWide}) {
+      display: none;
+    }
+  }
+
+  &.mobile {
+    display: none;
+
+    @media screen and (max-width: ${SCREEN.mobileWide}) {
+      display: flex;
+      margin-left: max(90px, calc(135px - (580px - 100vw) * 2 / 3));
+    }
+
+    @media screen and (max-width: ${SCREEN.mobile}) {
+      display: flex;
+      margin-left: max(55px, calc(100vw - 270px));
+    }
+
+    @media screen and (max-width: ${SCREEN.mobileNarrow}) {
+      display: flex;
+      margin-left: 55px;
+    }
+  }
 `;
