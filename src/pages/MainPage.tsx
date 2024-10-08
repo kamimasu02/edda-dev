@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 
 import TypoSection from "@components/main/TypoSection";
+import SynopsysSection from "@components/main/SynopsysSection";
 
 import { PageWrapper, Page } from "@styles/main/index.style";
 
@@ -16,6 +17,7 @@ const MainPage: FC = () => {
           <title>{TITLE}</title>
         </Helmet>
         <TypoSection />
+        <SynopsysSection />
       </Page>
     </PageWrapper>
   );
