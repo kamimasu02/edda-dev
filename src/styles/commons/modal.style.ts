@@ -74,7 +74,7 @@ export const ModalItemWrapper = styled.div`
 
     &.toon {
         max-width: 512px;
-        padding-bottom: 165%;
+        padding-bottom: 130%;
         position: relative;
         background: #fff;
 
@@ -102,12 +102,10 @@ export const ModalItemWrapper = styled.div`
         left: 0px;
         max-height: 65svh;
     }
-    @media (max-width: 767px) {
+    @media (max-height: 820px) {
         width: 100%;
-        padding-bottom: 155% !important;
-        height: 100%;
-        left: 0px;
-        max-height: 65svh;
+        padding-bottom: 0 !important;
+        height: 65svh;
     }
 `;
 
@@ -156,6 +154,11 @@ export const Pagination = styled.div`
             color: #fff;
         }
     }
+
+    @media (max-height: 767px) {
+        bottom: -30px;
+    }
+
 `;
 
 export const ModalControl = styled.div`
