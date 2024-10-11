@@ -105,7 +105,10 @@ export const ModalItemWrapper = styled.div`
     @media (max-height: 820px) {
         width: 100%;
         padding-bottom: 0 !important;
-        height: 65svh;
+        height: 65vh;
+        @supports (height: 65svh) {
+            height: 65svh;
+        }
     }
 `;
 
@@ -156,7 +159,7 @@ export const Pagination = styled.div`
     }
 
     @media (max-height: 767px) {
-        bottom: -30px;
+        bottom: -40px;
     }
 
 `;
