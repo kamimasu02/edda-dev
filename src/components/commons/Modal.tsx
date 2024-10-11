@@ -1,8 +1,10 @@
-import React, { useState, useEffect, Dispatch, SetStateAction, useRef, forwardRef } from "react";
+import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
+import type { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Swiper as SwiperType } from "swiper"; // Swiper 타입 임포트
 import { ModalWrapper, ModalBox, ModalCloseButton, ModalItemWrapper, ModalVideoWrapper, ToonWrapper, Pagination, ModalControl } from "@styles/commons/modal.style";
+
 interface ModalProps {
     type: string;
     itemId: number;
@@ -10,7 +12,7 @@ interface ModalProps {
     setModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-function Modal({ type, itemId, modalOpen, setModalOpen }: ModalProps) {
+const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, setModalOpen }) => {
     const [pages, setPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const swiperRef = useRef<SwiperType | null>(null); // Swiper 인스턴스 타입 지정

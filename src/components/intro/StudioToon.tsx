@@ -26,7 +26,6 @@ function StudioToon({ scrollY }: { scrollY: number }) {
         if (toonItemWrapper) {
             const count = toonItemWrapper.children.length;
             setChildrenCount(count);
-            console.log("childrenCount: ", count);
         }
     }, []);
 
