@@ -8,7 +8,7 @@ import type { FC } from "react";
 
 const StudioToon: FC<{ scrollY: number }> = ({ scrollY }) => {
     const [childrenCount, setChildrenCount] = useState(0);
-    const [itemId, setItemId] = useState<number | null>(null); // itemId를 null로 초기화
+    const [itemId, setItemId] = useState<number | null>(null);
     const { isModalOpen, toggleModal } = useModal({ itemNumber: itemId || 0, setItemId });
 
     useEffect(() => {
@@ -19,11 +19,23 @@ const StudioToon: FC<{ scrollY: number }> = ({ scrollY }) => {
         }
     }, []);
 
-    // 모달을 열기 위한 핸들러
     const handleItemClick = (id: number) => {
-        setItemId(id);
-        toggleModal(); // itemId가 변경되면 바로 모달 열기
+        if (itemId === id) {
+            setItemId(null);
+            setTimeout(() => {
+                setItemId(id);
+            }, 0);
+        } else {
+            setItemId(id);
+        }
     };
+
+    useEffect(() => {
+        if (itemId !== null) {
+            toggleModal();
+        }
+    }, [itemId]);
+
 
     return (
         <StudioToonBox>
@@ -58,13 +70,12 @@ const StudioToon: FC<{ scrollY: number }> = ({ scrollY }) => {
                         <ToonInfo>
                             <p>
                                 <strong>2화</strong>
-                                <span>로키 디자인 회의</span>
+                                <span>DXI 개발하는 많화</span>
                             </p>
                         </ToonInfo>
                     </ToonItem>
                 </ToonItemWrapper>
             </StudioToonWrapper>
-            <ToonVisual />
         </StudioToonBox>
     );
 };

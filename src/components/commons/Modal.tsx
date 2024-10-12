@@ -29,6 +29,7 @@ const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, toggleModal }) => {
         return () => {
             document.body.classList.remove("modal-open");
         };
+
     }, [modalOpen]);
 
     // itemId가 변경될 때 페이지 수 변경
