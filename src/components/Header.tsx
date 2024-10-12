@@ -30,6 +30,8 @@ import RightBracketSvg from "@assets/images/svgs/right-bracket.svg";
 import type { FC } from "react";
 
 const Header: FC = () => {
+  const MOBILE_SCROLL_DEBOUNCE_TIME = 500;
+
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [hamburgerMenusPadTop, setHamburgerMenusPadTop] = useState(0);
 
@@ -58,7 +60,7 @@ const Header: FC = () => {
     e.stopPropagation();
 
     setHamburgerMenusPadTop(window.scrollY);
-  }, 1000);
+  }, MOBILE_SCROLL_DEBOUNCE_TIME);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollMobileMenus);
