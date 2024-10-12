@@ -59,7 +59,7 @@ export const HeaderNavBar = styled.nav<{
 
 // 모바일 햄버거 버튼
 
-export const HamburgerMenusWrapper = styled.div`
+export const HamburgerMenusWrapper = styled.div<{ $padTop?: number }>`
   display: none;
 
   @media screen and (max-width: ${SCREEN.tablet}) {
@@ -67,6 +67,7 @@ export const HamburgerMenusWrapper = styled.div`
     position: absolute;
     flex-direction: column;
     background-color: #0e004e;
+    padding-top: ${({ $padTop }) => `${$padTop || 0}px`};
     top: 0;
     right: 0;
     width: 0;

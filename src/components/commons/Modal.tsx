@@ -1,13 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-  useRef,
-} from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Swiper as SwiperType } from "swiper"; // Swiper 타입 임포트
+import React, { useState, useEffect, useRef } from "react";
 import {
   ModalWrapper,
   ModalBox,
@@ -18,14 +9,20 @@ import {
   Pagination,
   ModalControl,
 } from "@styles/commons/modal.style";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+
+import type { FC } from "react";
+
 interface ModalProps {
   type: string;
   itemId: number;
   modalOpen: boolean;
-  setModalOpen: Dispatch<SetStateAction<boolean>>;
+  toggleModal: (e: React.MouseEvent) => void;
 }
 
-function Modal({ type, itemId, modalOpen, setModalOpen }: ModalProps) {
+const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, toggleModal }) => {
   const [pages, setPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null); // Swiper 인스턴스 타입 지정
@@ -72,7 +69,7 @@ function Modal({ type, itemId, modalOpen, setModalOpen }: ModalProps) {
         {type === "toon" ? (
           <ModalItemWrapper className={type === "toon" ? "toon" : "video"}>
             <ModalCloseButton
-              onClick={() => setModalOpen(false)}
+              onClick={toggleModal}
               className={type === "toon" ? "toon" : "video"}
             >
               X
@@ -139,7 +136,7 @@ function Modal({ type, itemId, modalOpen, setModalOpen }: ModalProps) {
         ) : (
           <ModalItemWrapper className={type === "toon" ? "toon" : "video"}>
             <ModalCloseButton
-              onClick={() => setModalOpen(false)}
+              onClick={toggleModal}
               className={type === "toon" ? "toon" : "video"}
             >
               X
@@ -158,6 +155,6 @@ function Modal({ type, itemId, modalOpen, setModalOpen }: ModalProps) {
       </ModalBox>
     </ModalWrapper>
   );
-}
+};
 
 export default Modal;
