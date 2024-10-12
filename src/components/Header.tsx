@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
+import _ from "lodash";
 
 import { HEADER_LINKS } from "@consts/header";
 
@@ -30,6 +31,7 @@ import type { FC } from "react";
 
 const Header: FC = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [hamburgerMenusPadTop, setHamburgerMenusPadTop] = useState(0);
 
   const handleOpenMenu = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -51,6 +53,21 @@ const Header: FC = () => {
     }
   };
 
+  const handleScrollMobileMenus = _.debounce((e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    setHamburgerMenusPadTop(window.scrollY);
+  }, 1000);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollMobileMenus);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollMobileMenus);
+    };
+  }, [handleScrollMobileMenus]);
+
   return (
     <HeaderWrapper>
       <MainHeader>
@@ -66,7 +83,10 @@ const Header: FC = () => {
           <img src={HamburgerSvg} alt="햄버거 svg 이미지" />
         </Button>
         {createPortal(
-          <HamburgerMenusWrapper className={isMenuOpened ? "show" : ""}>
+          <HamburgerMenusWrapper
+            className={isMenuOpened ? "show" : ""}
+            $padTop={hamburgerMenusPadTop}
+          >
             <HamburgerMenuHeader>
               <HamburgerHeaderLogo
                 src={HamburgerHeaderLogoImage}
