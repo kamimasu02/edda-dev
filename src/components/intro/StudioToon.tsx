@@ -76,6 +76,9 @@ const StudioToon: FC<{ scrollY: number }> = ({ scrollY }) => {
                     </ToonItem>
                 </ToonItemWrapper>
             </StudioToonWrapper>
+
+            <ToonVisual/>
+
         </StudioToonBox>
     );
 };
