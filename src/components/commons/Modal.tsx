@@ -1,18 +1,19 @@
-import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
-import type { FC } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Swiper as SwiperType } from "swiper"; // Swiper 타입 임포트
+import React, { useState, useEffect, useRef } from "react";
 import { ModalWrapper, ModalBox, ModalCloseButton, ModalItemWrapper, ModalVideoWrapper, ToonWrapper, Pagination, ModalControl } from "@styles/commons/modal.style";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+
+import type { FC } from "react";
 
 interface ModalProps {
     type: string;
     itemId: number;
     modalOpen: boolean;
-    setModalOpen: Dispatch<SetStateAction<boolean>>;
+    toggleModal: (e: React.MouseEvent) => void;
 }
 
-const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, setModalOpen }) => {
+const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, toggleModal }) => {
     const [pages, setPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const swiperRef = useRef<SwiperType | null>(null); // Swiper 인스턴스 타입 지정
@@ -55,10 +56,11 @@ const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, setModalOpen }) => {
     return (
         <ModalWrapper className={modalOpen ? "open" : ""}>
             <ModalBox className={type === "toon" ? "toon" : "video"}>
-
                 {type === "toon" ? (
                     <ModalItemWrapper className={type === "toon" ? "toon" : "video"}>
-                        <ModalCloseButton onClick={() => setModalOpen(false)} className={type === "toon" ? "toon" : "video"}>X</ModalCloseButton>
+                        <ModalCloseButton onClick={toggleModal} className={type === "toon" ? "toon" : "video"}>
+                            X
+                        </ModalCloseButton>
                         <ToonWrapper ref={toonWrapperRef}>
                             {pages === 0 ? (
                                 <img src={`/images/dev_toon-0${itemId}.jpg`} alt="toon" />
@@ -105,7 +107,9 @@ const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, setModalOpen }) => {
                     </ModalItemWrapper>
                 ) : (
                     <ModalItemWrapper className={type === "toon" ? "toon" : "video"}>
-                        <ModalCloseButton onClick={() => setModalOpen(false)} className={type === "toon" ? "toon" : "video"}>X</ModalCloseButton>                        
+                        <ModalCloseButton onClick={toggleModal} className={type === "toon" ? "toon" : "video"}>
+                            X
+                        </ModalCloseButton>
                         <ModalVideoWrapper>
                             <iframe
                                 title={`video-${itemId}`}
@@ -120,6 +124,6 @@ const Modal: FC<ModalProps> = ({ type, itemId, modalOpen, setModalOpen }) => {
             </ModalBox>
         </ModalWrapper>
     );
-}
+};
 
 export default Modal;
