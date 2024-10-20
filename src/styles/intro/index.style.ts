@@ -111,7 +111,7 @@ export const IntroMainWrapper = styled.div`
         transform: translateX(50px);
       }
       @media (max-width: 767px) {
-        transform: translateX(-30px);
+        transform: translateX(40px);
       }
     }
     p:last-of-type {
@@ -127,7 +127,7 @@ export const IntroMainText = styled.p`
   color: #222;
   text-align: center;
   @media (max-width: 768px) {
-    font-size: 48px;
+    font-size: 32px;
   }
 `;
 export const IntroSubText = styled.p`
@@ -197,6 +197,16 @@ export const SubTitle = styled.p`
   @media (max-width: 360px) {
     font-size: 16px;
     margin-top: 50px;
+  }
+
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 0.8s;
+
+  &.scrolled {
+    transform: translateX(0);
+    opacity: 1;
   }
 `;
 
@@ -538,6 +548,17 @@ export const StudioToonWrapper = styled.div`
   padding: 200px 0;
   position: relative;
   z-index: 10;
+
+  & > div:first-of-type {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.8s;
+  }
+
+  &.scrolled > div:first-of-type {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 export const ToonDetail = styled.p`
@@ -547,6 +568,15 @@ export const ToonDetail = styled.p`
   margin-top: 60px;
   font-weight: 400;
   line-height: 1.6;
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 0.8s;
+
+  &.scrolled {
+    transform: translateX(0);
+    opacity: 1;
+  }
 `;
 
 export const ToonItemWrapper = styled.div.attrs((props) => ({}))<{
@@ -560,6 +590,15 @@ export const ToonItemWrapper = styled.div.attrs((props) => ({}))<{
   gap: 30px;
   position: relative;
   box-sizing: border-box;
+  transform: translateX(50px);
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 0.8s;
+
+  &.scrolled {
+    transform: translateX(0);
+    opacity: 1;
+  }
 
   @media (max-width: 1169px) {
     width: 66.66%;
