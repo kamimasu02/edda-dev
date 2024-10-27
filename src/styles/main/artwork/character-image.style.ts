@@ -57,7 +57,7 @@ export const CharacterImageWrapper = styled.div<{
   }
 
   &.scrolled {
-    animation: ${scrolledAnimation} 1s ease-out;
+    animation: ${scrolledAnimation} 1s forwards ease-out;
     animation-delay: 0.8s;
   }
 `;
